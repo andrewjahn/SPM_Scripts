@@ -40,7 +40,7 @@ for subject=subjects
         end
     end
 
-    Run2_onsetTimes = tdfread(['sub-' subject '_task-flanker_run-1_events.tsv'], '\t');
+    Run2_onsetTimes = tdfread(['sub-' subject '_task-flanker_run-2_events.tsv'], '\t');
     Run2_onsetTimes.trial_type = string(Run2_onsetTimes.trial_type);
 
     Run2_Incongruent = [];
