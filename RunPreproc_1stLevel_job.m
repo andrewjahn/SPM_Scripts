@@ -7,7 +7,6 @@
 % Script created by Andrew Jahn, University of Michigan, 10 January 2020
 % This script is designed to analyze the Flanker dataset (https://openneuro.org/datasets/ds000102/versions/00001)
 % It is used during the Scripting chapter of the SPM walkthrough (https://andysbrainbook.readthedocs.io/en/latest/SPM/SPM_Short_Course/SPM_06_Scripting.html)
-% For windows: C:\Users\Administrator\Desktop\Flanker\sub-08\anat
 
 subjects = [01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26]; % Replace with a list of all of the subjects you wish to analyze
 
