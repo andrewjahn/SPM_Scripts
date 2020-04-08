@@ -61,10 +61,10 @@ for subject=subjects
 
     % Save timing files into text files
 
-    save('incongruent_run1.txt', 'Run1_Incongruent');
-    save('incongruent_run2.txt', 'Run2_Incongruent');
-    save('congruent_run1.txt', 'Run1_Congruent');
-    save('congruent_run2.txt', 'Run2_Congruent');
+    save('incongruent_run1.txt', 'Run1_Incongruent', '-ASCII');
+    save('incongruent_run2.txt', 'Run2_Incongruent', '-ASCII');
+    save('congruent_run1.txt', 'Run1_Congruent', '-ASCII');
+    save('congruent_run2.txt', 'Run2_Congruent', '-ASCII');
 
     % Go back to Flanker directory
 
