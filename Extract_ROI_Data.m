@@ -17,6 +17,6 @@ function ROI_data = Extract_ROI_Data(ROI, Contrast)
 
     XYZ = [x y z]';
     
-    ROI_data = mean(spm_get_data(Contrast, XYZ),2)
+    ROI_data = nanmean(spm_get_data(Contrast, XYZ),2)
     
 end
