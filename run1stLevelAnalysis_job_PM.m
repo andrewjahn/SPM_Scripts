@@ -4,9 +4,7 @@
 % cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
 
-%subjects = [01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16]; % Replace with a list of all of the subjects you wish to analyze
-
-subjects = 01;
+subjects = [01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16]; % Replace with a list of all of the subjects you wish to analyze
 
 user = getenv('USER'); % Will return the username for OSX operating systems; change to 'USERNAME' for Windows
 
