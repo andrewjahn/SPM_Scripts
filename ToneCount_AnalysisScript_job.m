@@ -254,17 +254,6 @@ matlabbatch{6}.spm.stats.fmri_spec.cvi = 'AR(1)';
 matlabbatch{7}.spm.stats.fmri_est.spmmat(1) = cfg_dep('fMRI model specification: SPM.mat File', substruct('.','val', '{}',{6}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
 matlabbatch{7}.spm.stats.fmri_est.write_residuals = 0;
 matlabbatch{7}.spm.stats.fmri_est.method.Classical = 1;
-matlabbatch{8}.spm.stats.con.spmmat(1) = cfg_dep('Model estimation: SPM.mat File', substruct('.','val', '{}',{7}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
-matlabbatch{8}.spm.stats.con.consess{1}.tcon.name = 'ToneCount';
-matlabbatch{8}.spm.stats.con.consess{1}.tcon.weights = [1 0];
-matlabbatch{8}.spm.stats.con.consess{1}.tcon.sessrep = 'none';
-matlabbatch{8}.spm.stats.con.consess{2}.tcon.name = 'ToneProbe';
-matlabbatch{8}.spm.stats.con.consess{2}.tcon.weights = [0 1];
-matlabbatch{8}.spm.stats.con.consess{2}.tcon.sessrep = 'none';
-matlabbatch{8}.spm.stats.con.consess{3}.tcon.name = 'ToneCount-ToneProbe';
-matlabbatch{8}.spm.stats.con.consess{3}.tcon.weights = [1 -1];
-matlabbatch{8}.spm.stats.con.consess{3}.tcon.sessrep = 'none';
-matlabbatch{8}.spm.stats.con.delete = 0;
 
 spm_jobman('run', matlabbatch);
 
