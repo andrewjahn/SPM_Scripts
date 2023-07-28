@@ -24,23 +24,23 @@ subject = num2str(subject, '%02d'); % Zero-pads each number so that the subject 
 % Check whether the files have been unzipped. If not, unzip them using
 % gunzip
 
-if exist(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii']) == 0
+if exist(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii']) == 0
     display('Run 1 has not been unzipped; unzipping now')
-    gunzip(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii.gz'])
+    gunzip(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii.gz'])
 else
     display('Run 1 is already unzipped; doing nothing')
 end
 
-if exist(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii']) == 0
+if exist(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii']) == 0
     display('Run 2 has not been unzipped; unzipping now')
-    gunzip(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii.gz'])
+    gunzip(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii.gz'])
 else
     display('Run 2 is already unzipped; doing nothing')
 end
 
-if exist(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii']) == 0
+if exist(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii']) == 0
     display('Anatomical image has not been unzipped; unzipping now')
-    gunzip(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii.gz'])
+    gunzip(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii.gz'])
 else
     display('Anatomical image is already unzipped; doing nothing')
 end
@@ -51,8 +51,8 @@ end
 
 matlabbatch{1}.cfg_basicio.file_dir.file_ops.cfg_named_file.name = 'run1run2Files';
 matlabbatch{1}.cfg_basicio.file_dir.file_ops.cfg_named_file.files = {
-                                                                     {['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii']}
-                                                                     {['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii']}
+                                                                     {['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-1_bold.nii']}
+                                                                     {['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\sub-' subject '_task-flanker_run-2_bold.nii']}
                                                                      }';
 matlabbatch{2}.spm.spatial.realign.estwrite.data{1}(1) = cfg_dep('Named File Selector: run1run2Files(1) - Files', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files', '{}',{1}));
 matlabbatch{2}.spm.spatial.realign.estwrite.data{2}(1) = cfg_dep('Named File Selector: run1run2Files(2) - Files', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files', '{}',{2}));
@@ -77,7 +77,7 @@ matlabbatch{3}.spm.temporal.st.so = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 
 matlabbatch{3}.spm.temporal.st.refslice = 1;
 matlabbatch{3}.spm.temporal.st.prefix = 'a';
 matlabbatch{4}.spm.spatial.coreg.estwrite.ref(1) = cfg_dep('Realign: Estimate & Reslice: Mean Image', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','rmean'));
-matlabbatch{4}.spm.spatial.coreg.estwrite.source = {['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii,1']};
+matlabbatch{4}.spm.spatial.coreg.estwrite.source = {['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\anat\sub-' subject '_T1w.nii,1']};
 matlabbatch{4}.spm.spatial.coreg.estwrite.other = {''};
 matlabbatch{4}.spm.spatial.coreg.estwrite.eoptions.cost_fun = 'nmi';
 matlabbatch{4}.spm.spatial.coreg.estwrite.eoptions.sep = [4 2];
@@ -87,7 +87,7 @@ matlabbatch{4}.spm.spatial.coreg.estwrite.roptions.interp = 4;
 matlabbatch{4}.spm.spatial.coreg.estwrite.roptions.wrap = [0 0 0];
 matlabbatch{4}.spm.spatial.coreg.estwrite.roptions.mask = 0;
 matlabbatch{4}.spm.spatial.coreg.estwrite.roptions.prefix = 'r';
-matlabbatch{5}.spm.spatial.preproc.channel.vols = {['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\anat\rsub-' subject '_T1w.nii,1']};
+matlabbatch{5}.spm.spatial.preproc.channel.vols = {['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\anat\rsub-' subject '_T1w.nii,1']};
 matlabbatch{5}.spm.spatial.preproc.channel.biasreg = 0.001;
 matlabbatch{5}.spm.spatial.preproc.channel.biasfwhm = 60;
 matlabbatch{5}.spm.spatial.preproc.channel.write = [0 1];
@@ -141,7 +141,7 @@ matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_file_split.index = {
                                                                      1
                                                                      2
                                                                      }';
-matlabbatch{9}.spm.stats.fmri_spec.dir = {['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\1stLevel']};
+matlabbatch{9}.spm.stats.fmri_spec.dir = {['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\1stLevel']};
 matlabbatch{9}.spm.stats.fmri_spec.timing.units = 'secs';
 matlabbatch{9}.spm.stats.fmri_spec.timing.RT = 2;
 matlabbatch{9}.spm.stats.fmri_spec.timing.fmri_t = 16;
@@ -152,7 +152,7 @@ matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(1).name = 'Inc';
 
 % Load the timing files for each condition for each run
 
-data_incongruent_run1 = load(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\incongruent_run1.txt']);
+data_incongruent_run1 = load(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\incongruent_run1.txt']);
 
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(1).onset = data_incongruent_run1(:,1);
 %%
@@ -163,7 +163,7 @@ matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(1).orth = 1;
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(2).name = 'Con';
 %%
 
-data_congruent_run1 = load(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\congruent_run1.txt']);
+data_congruent_run1 = load(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\congruent_run1.txt']);
 
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(2).onset = data_congruent_run1(:,1);
 %%
@@ -178,7 +178,7 @@ matlabbatch{9}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('File Set Split: run1run2FileSplit (2)', substruct('.','val', '{}',{8}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('{}',{2}));
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(1).name = 'Inc';
 %%
-data_incongruent_run2 = load(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\incongruent_run2.txt']);
+data_incongruent_run2 = load(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\incongruent_run2.txt']);
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(1).onset = data_incongruent_run2(:,1);
 %%
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(1).duration = 2;
@@ -187,7 +187,7 @@ matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(1).pmod = struct('name', {}, 'pa
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(1).orth = 1;
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(2).name = 'Con';
 %%
-data_congruent_run2 = load(['C:\fMRI_Course\Data\OpenNeuro\sub-' subject '\func\congruent_run2.txt']);
+data_congruent_run2 = load(['C:\fMRI_Course\fMRI_Lab_Materials\Data\OpenNeuro\sub-' subject '\func\congruent_run2.txt']);
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(2).onset = data_congruent_run2(:,1);
 %%
 matlabbatch{9}.spm.stats.fmri_spec.sess(2).cond(2).duration = 2;
